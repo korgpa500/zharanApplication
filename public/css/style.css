@@ -1,0 +1,173 @@
+html, body {
+    background-color: #f2f8ff;
+    color: #636b6f;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+.py-4 {
+    margin-top: 50px;
+}
+
+.carousel-caption{
+    text-shadow: -1px -1px 1px #000000,
+    -2px -2px 1px #000000,
+    -3px -3px 1px #000000,
+    -4px -4px 1px #000000,
+    -5px -5px 1px #000000,
+    -6px -6px 1px #000000,
+    -0px -250px 5px #ffffff;
+}
+/** old style **/
+@font-face{
+    font-family:"youssryText";
+    src:url(../font/BSnake.ttf);
+}
+.textTitleY{
+    font-family: "youssryText";
+    font-size: 60px;
+    color: #224466;
+    font-weight: bold;
+    text-shadow: #ffffff 1px 1px 1px;
+}
+.textWarning{
+    font-family: "Rockwell";
+    font-size: 16px;
+    color: #224466;
+    font-weight: bold;
+    text-shadow: #ffffff 1px 1px 1px;
+}
+.container{
+    padding:60px 20px;
+}
+#googleMap {
+    /*width: 100%; /* Span the entire width of the screen */
+    height: 600px; /* Set the height to 400 pixels */
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px #000000;
+}
+.btnStage{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    border-radius: 50%;
+    background-color: #cef8aa;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#cef8aa), to(#7fe0f8));
+    background-image: -webkit-linear-gradient(top, #cef8aa, #7fe0f8);
+    background-image: -moz-linear-gradient(top, #cef8aa, #7fe0f8);
+    background-image: -ms-linear-gradient(top, #cef8aa, #7fe0f8);
+    background-image: -o-linear-gradient(top, #cef8aa, #7fe0f8);
+    background-image: linear-gradient(to bottom, #cef8aa, #7fe0f8);
+    filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#cef8aa, endColorstr=#7fe0f8);
+    box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 2px 2px #156785, 1px 2px 2px #999999;
+    color:#245269;
+    font-size:17px;
+    text-shadow: #ffffff -1px 0px 2px;
+    font-weight: bold;
+}
+.btnStage:hover{
+    background-color: #9bf1aa;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#9bf1aa), to(#4fd4f5));
+    background-image: -webkit-linear-gradient(top, #9bf1aa, #4fd4f5);
+    background-image: -moz-linear-gradient(top, #9bf1aa, #4fd4f5);
+    background-image: -ms-linear-gradient(top, #9bf1aa, #4fd4f5);
+    background-image: -o-linear-gradient(top, #9bf1aa, #4fd4f5);
+    background-image: linear-gradient(to bottom, #9bf1aa, #4fd4f5);
+    filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#9bf1ff, endColorstr=#4fd4f5);
+    box-shadow: 0px 1px 0px #2ab7ec, inset 0px 2px 2px 2px #156785, 1px 2px 2px #999999;
+    animation: shake 1.5s;
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+    cursor: pointer;
+
+}
+.textareaY{
+    border-radius: 8px;
+    box-shadow: #000000 1px 1px 1px inset;
+    resize: none;
+    padding: 5px;
+}
+input[type='text']#youssry{
+    border-radius: 8px;
+    box-shadow: #000000 1px 1px 1px inset;
+    padding: 5px;
+}
+.btnYoussry{
+    box-shadow: 2px 2px 5px #cccccc ,1px 1px 1px 1px #000088;
+    padding: 8px 30px 8px 25px;
+}
+
+
+/* carsoul fade */
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition-duration: 3s;
+    transition-property: opacity;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+    opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+    opacity: 0;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* end carsoul fade */
