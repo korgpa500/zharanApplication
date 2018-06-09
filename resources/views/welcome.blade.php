@@ -26,9 +26,7 @@
 <body>
 
 <!--navbar-->
-<nav class="navbar navbar-expand-md navbar-dark bg-info fixed-top"
-     style="color: #ffffff;font-weight: bold;text-shadow: #000000 1px 1px 1px;
-                    box-shadow: #cccccc 3px 3px 10px;border-bottom-right-radius: 15px;">
+<nav class="navbar navbar-expand-md navbar-dark bg-info fixed-top myNavBar">
     <a class="navbar-brand" href="{{ url('/') }}">
         {{ config('app.name', 'Laravel') }}
     </a>
@@ -49,7 +47,7 @@
         </ul>
     </div>
 </nav>
-
+<br><br>
 <!-- carousel -->
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
@@ -91,32 +89,32 @@
     <h1 class="textTitleY">ZAHRAN LANGUAGE SCHOOLS</h1>
     <div class="row">
         <div class="col-sm-4 col-lg-2 mx-auto">
-            <a href="">
+            <a href="#">
                 <button class="btnStage animated infinite pulse" id="kg">K.G</button>
             </a>
         </div>
         <div class="col-sm-4 col-lg-2 mx-auto">
-            <a href="">
+            <a href="#">
                 <button class="btnStage animated infinite pulse" id="ps">Primary Stage</button>
             </a>
         </div>
         <div class="col-sm-4 col-lg-2 mx-auto">
-            <a href="">
+            <a href="#">
                 <button class="btnStage animated infinite pulse" id="mg">Middle Girls</button>
             </a>
         </div>
         <div class="col-sm-4 col-lg-2 mx-auto">
-            <a href="">
+            <a href="#">
                 <button class="btnStage animated infinite pulse" id="mb">Middle Boys</button>
             </a>
         </div>
         <div class="col-sm-4 col-lg-2 mx-auto">
-            <a href="">
+            <a href="#">
                 <button class="btnStage animated infinite pulse" id="sg">Secondary Girls</button>
             </a>
         </div>
         <div class="col-sm-4 col-lg-2 mx-auto">
-            <a href="">
+            <a href="#">
                 <button class="btnStage animated infinite pulse" id="sb">Secondary Boys</button>
             </a>
         </div>
@@ -132,7 +130,7 @@
     <h4>First class graduated at 2001.</h4>
     <h4>Zahran Boys School won the Pioneers Competition against all Alexandria Schools on 2002.</h4>
     <h4>Zahran Girls School won it on 2008.</h4>
-    <h4><a href="aboutus.php">More</a></h4>
+    <h4><a href="#">More</a></h4>
 </div>
 <!-- End About Us -->
 
@@ -234,39 +232,71 @@
             <!-- End Google Maps -->
         </div>
     </div>
+    <br><br>
 </div>
 <!-- End Contact -->
 
+@if($errors)
+    <!-- Modal Error Message-->
+    <div class="modal fade" id="MsgError" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-danger">Warning......</h4>
+                </div>
+                <div class="modal-body">
+                    <label class="text-danger active textWarning">
+                        @foreach($errors->all() as $error)
+                            <script type='text/javascript'>
+                                $(document).ready(function () {
+                                    $('#MsgError').modal('show');
+                                });
+                            </script>
 
-<!-- Modal Eroor Message-->
-<div class="modal fade" id="MsgError" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-danger">Warning......</h4>
-            </div>
-            <div class="modal-body">
-                <label class="text-danger active textWarning">
-                    @foreach($errors->all() as $error)
-                        <script type='text/javascript'>
-                            $(document).ready(function () {
-                                $('#MsgError').modal('show');
-                            });
-                        </script>
-
-                        {{$error}} <br>
-                    @endforeach
-                </label>
-            </div>
-            <div class="modal-footer">
-                <button id="btnClose" type="button" class="btn btn-danger btnYoussry" data-dismiss="modal">Close
-                </button>
+                            {{$error}} <br>
+                        @endforeach
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnClose" type="button" class="btn btn-danger btnYoussry" data-dismiss="modal">Close
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- End Modal Error-->
+    <!-- End Modal Error-->
+@endif
+
+@if(session()->has('message'))
+    <!-- Modal Sent Message-->
+    <div class="modal fade" id="MsgSent" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-info">Success.....</h4>
+                </div>
+                <div class="modal-body">
+                    <label class="text-info active textWarning">
+                            <script type='text/javascript'>
+                                $(document).ready(function () {
+                                    $('#MsgSent').modal('show');
+                                });
+                            </script>
+                            Thank you,your message has ben sent........
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info btnYoussry" data-dismiss="modal">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal Error-->
+
+@endif
 
 
 </body>

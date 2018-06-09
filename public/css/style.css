@@ -69,10 +69,10 @@ html, body {
 }
 .textTitleY{
     font-family: "youssryText";
-    font-size: 60px;
+    font-size: 50px;
     color: #224466;
     font-weight: bold;
-    text-shadow: #ffffff 1px 1px 1px;
+    text-shadow: #aaaaaa 2px 2px 1px;
 }
 .textWarning{
     font-family: "Rockwell";
@@ -171,3 +171,35 @@ input[type='text']#youssry{
 }
 
 /* end carsoul fade */
+
+
+/* my navbar style */
+.myNavBar{
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: #000000 1px 1px 1px;
+    box-shadow: #cccccc 3px 3px 10px;
+    border-bottom-right-radius: 15px;
+}
+.dropdown-menu a{
+    color: white;
+}
+.dropdown-menu a:hover{
+    color: black;
+    text-shadow: 1px 1px 1px #ffffff;
+}
+#navbarDropdown{
+    color: #dddddd;
+}
+#navbarDropdown:focus{
+    color: #ffffff;
+}
+#navbarDropdown:hover{
+    color: #ffffff;
+}
+
+/* animation class for logo brand  */
+.logoAnim{
+    transition: all 1s;
+    transform: rotate(2160deg);
+}

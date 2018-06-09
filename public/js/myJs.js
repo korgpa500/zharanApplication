@@ -9,4 +9,12 @@ $(document).ready(function () {
             scrollTop: $("#contact").offset().top
         }, 800);
     });
+
+    $(".navbar-brand").hover(function () {
+        if ($(this).hasClass("logoAnim")) {
+            $(this).removeClass("logoAnim");
+        } else {
+            $(this).addClass("logoAnim");
+        }
+    });
 });
