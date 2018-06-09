@@ -25,9 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //$user = User::find(Auth::user()->user_id);
-        //dd($user->type->type_name ,$user->user_id ,$user->section->section_name);
         return view('home');
-
     }
 }

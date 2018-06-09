@@ -12,15 +12,20 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js" defer></script>
     <script src="{{ asset('js/myJs.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
+    <!-- style for gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <link href="{{ asset('css/gallery-grid.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!-- icon -->
@@ -38,23 +43,23 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar
+            <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-
+                <li><a class="nav-link" href="/about" id="itemsLink">{{ __('About') }}</a></li>
             </ul>
-            -->
+
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
-                <li><a class="nav-link active" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                <li><a class="nav-link active" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                <li><a class="nav-link" id="itemsLink" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                <li><a class="nav-link" id="itemsLink" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                 @else
                     @if(\App\User::find(Auth::user()->user_id)->type->type_name == "Admin")
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Admin
+                                {{ __('Admin') }}
                             </a>
                             <div class="dropdown-menu bg-info" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/types">Types</a>

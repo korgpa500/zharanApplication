@@ -188,13 +188,13 @@ input[type='text']#youssry{
     color: black;
     text-shadow: 1px 1px 1px #ffffff;
 }
-#navbarDropdown{
-    color: #dddddd;
+#navbarDropdown ,#itemsLink{
+    color: #eeeeee;
 }
-#navbarDropdown:focus{
+#navbarDropdown:focus ,#itemsLink:focus{
     color: #ffffff;
 }
-#navbarDropdown:hover{
+#navbarDropdown:hover ,#itemsLink:hover{
     color: #ffffff;
 }
 

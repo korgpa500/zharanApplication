@@ -22,6 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //for suggestion
 Route::post('/suggestions' ,'SuggestionController@store');// guest send suggestion
 
+//about page
+Route::get('/about' ,'PagesController@aboutView');
+
 
 //routes for admin only
 Route::group(['middleware' => ['checkAdmin']], function () {

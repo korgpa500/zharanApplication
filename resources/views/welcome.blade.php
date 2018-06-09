@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>{{config('app.name' ,'Z.L.S')}}</title>
 
     <!--script -->
@@ -12,6 +15,7 @@
     <script src="{{asset('js/myJs.js')}}"></script>
 
     <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
@@ -35,13 +39,19 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left Side Of Navbar -->
+        <ul class="navbar-nav mr-auto">
+            <li><a class="nav-link" href="/about" id="itemsLink">{{ __('About') }}</a></li>
+        </ul>
+        <!-- Right Side Of NavBar -->
         <ul class="navbar-nav ml-auto">
             @if (Route::has('login'))
                 @auth
-                <li><a class="nav-link active" href="{{ url('/home') }}">Home</a></li>
+                <li><a class="nav-link"  id="itemsLink" href="{{ url('/home') }}">Home</a></li>
             @else
-                <li><a class="nav-link active" href="{{ route('login') }}">Login</a></li>
-                <li><a class="nav-link active" href="{{ route('register') }}">Register</a></li>
+                <li><a class="nav-link"  id="itemsLink" href="{{ route('login') }}">Login</a></li>
+                <li><a class="nav-link"  id="itemsLink" href="{{ route('register') }}">Register</a></li>
                 @endauth
             @endif
         </ul>
@@ -130,7 +140,7 @@
     <h4>First class graduated at 2001.</h4>
     <h4>Zahran Boys School won the Pioneers Competition against all Alexandria Schools on 2002.</h4>
     <h4>Zahran Girls School won it on 2008.</h4>
-    <h4><a href="#">More</a></h4>
+    <h4><a href="/about">More</a></h4>
 </div>
 <!-- End About Us -->
 
@@ -233,71 +243,70 @@
         </div>
     </div>
     <br><br>
-</div>
-<!-- End Contact -->
+    <!-- End Contact -->
 
 @if($errors)
     <!-- Modal Error Message-->
-    <div class="modal fade" id="MsgError" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title text-danger">Warning......</h4>
-                </div>
-                <div class="modal-body">
-                    <label class="text-danger active textWarning">
-                        @foreach($errors->all() as $error)
-                            <script type='text/javascript'>
-                                $(document).ready(function () {
-                                    $('#MsgError').modal('show');
-                                });
-                            </script>
+        <div class="modal fade" id="MsgError" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-danger">Warning......</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label class="text-danger active textWarning">
+                            @foreach($errors->all() as $error)
+                                <script type='text/javascript'>
+                                    $(document).ready(function () {
+                                        $('#MsgError').modal('show');
+                                    });
+                                </script>
 
-                            {{$error}} <br>
-                        @endforeach
-                    </label>
-                </div>
-                <div class="modal-footer">
-                    <button id="btnClose" type="button" class="btn btn-danger btnYoussry" data-dismiss="modal">Close
-                    </button>
+                                {{$error}} <br>
+                            @endforeach
+                        </label>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnClose" type="button" class="btn btn-danger btnYoussry" data-dismiss="modal">Close
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Modal Error-->
+        <!-- End Modal Error-->
 @endif
 
 @if(session()->has('message'))
     <!-- Modal Sent Message-->
-    <div class="modal fade" id="MsgSent" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title text-info">Success.....</h4>
-                </div>
-                <div class="modal-body">
-                    <label class="text-info active textWarning">
+        <div class="modal fade" id="MsgSent" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-info">Success.....</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label class="text-info active textWarning">
                             <script type='text/javascript'>
                                 $(document).ready(function () {
                                     $('#MsgSent').modal('show');
                                 });
                             </script>
                             Thank you,your message has ben sent........
-                    </label>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-info btnYoussry" data-dismiss="modal">Close
-                    </button>
+                        </label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info btnYoussry" data-dismiss="modal">Close
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Modal Error-->
+        <!-- End Modal Error-->
 
-@endif
+    @endif
 
-
+</div>
 </body>
 </html>
