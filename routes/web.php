@@ -10,11 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/**
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
-
+**/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -22,8 +22,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 //for suggestion
 Route::post('/suggestions' ,'SuggestionController@store');// guest send suggestion
 
-//about page
-Route::get('/about' ,'PagesController@aboutView');
+//pages
+Route::get('/' ,'PagesController@welcome')->name('welcome');//welcome page
+Route::get('/about' ,'PagesController@aboutView');//about page
+Route::get('/kg' ,'PagesController@kgView');//about page
+Route::get('/primary_stage' ,'PagesController@primaryView');//about page
+Route::get('/middle_girls' ,'PagesController@mGirlsView');//about page
+Route::get('/middle_boys' ,'PagesController@mBoysView');//about page
+Route::get('/secondary_girls' ,'PagesController@sGirlsView');//about page
+Route::get('/secondary_boys' ,'PagesController@sBoysView');//about page
 
 
 //routes for admin only

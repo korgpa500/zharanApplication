@@ -48,10 +48,10 @@
         <ul class="navbar-nav ml-auto">
             @if (Route::has('login'))
                 @auth
-                <li><a class="nav-link"  id="itemsLink" href="{{ url('/home') }}">Home</a></li>
+                <li><a class="nav-link" id="itemsLink" href="{{ url('/home') }}">Home</a></li>
             @else
-                <li><a class="nav-link"  id="itemsLink" href="{{ route('login') }}">Login</a></li>
-                <li><a class="nav-link"  id="itemsLink" href="{{ route('register') }}">Register</a></li>
+                <li><a class="nav-link" id="itemsLink" href="{{ route('login') }}">Login</a></li>
+                <li><a class="nav-link" id="itemsLink" href="{{ route('register') }}">Register</a></li>
                 @endauth
             @endif
         </ul>
@@ -98,33 +98,33 @@
 <div id="Sections" class="text-center container">
     <h1 class="textTitleY">ZAHRAN LANGUAGE SCHOOLS</h1>
     <div class="row">
-        <div class="col-sm-4 col-lg-2 mx-auto">
-            <a href="#">
+        <div class="col-sm-4 col-md-6 col-lg-2 col-xs-6">
+            <a href="/kg">
                 <button class="btnStage animated infinite pulse" id="kg">K.G</button>
             </a>
         </div>
-        <div class="col-sm-4 col-lg-2 mx-auto">
-            <a href="#">
+        <div class="col-sm-4 col-md-6 col-lg-2 col-xs-6">
+            <a href="/primary_stage">
                 <button class="btnStage animated infinite pulse" id="ps">Primary Stage</button>
             </a>
         </div>
-        <div class="col-sm-4 col-lg-2 mx-auto">
-            <a href="#">
+        <div class="col-sm-4 col-md-6 col-lg-2 col-xs-6">
+            <a href="/middle_girls">
                 <button class="btnStage animated infinite pulse" id="mg">Middle Girls</button>
             </a>
         </div>
-        <div class="col-sm-4 col-lg-2 mx-auto">
-            <a href="#">
+        <div class="col-sm-4 col-md-6 col-lg-2 col-xs-6">
+            <a href="/middle_boys">
                 <button class="btnStage animated infinite pulse" id="mb">Middle Boys</button>
             </a>
         </div>
-        <div class="col-sm-4 col-lg-2 mx-auto">
-            <a href="#">
+        <div class="col-sm-4 col-md-6 col-lg-2 col-xs-6">
+            <a href="/secondary_girls">
                 <button class="btnStage animated infinite pulse" id="sg">Secondary Girls</button>
             </a>
         </div>
-        <div class="col-sm-4 col-lg-2 mx-auto">
-            <a href="#">
+        <div class="col-sm-4 col-md-6 col-lg-2 col-xs-6">
+            <a href="/secondary_boys">
                 <button class="btnStage animated infinite pulse" id="sb">Secondary Boys</button>
             </a>
         </div>
@@ -191,19 +191,28 @@
             <form action="/suggestions" method="post">
                 @csrf
                 <div class="form-group">
-                    <label>Name :</label>
+                    <label class="font-weight-bold">Select Section</label>
+                    <select name="section_name" class="form-control" id="youssry">
+                        <option value="general">General</option>
+                        @foreach($sections as $section)
+                            <option value="{{$section->section_name}}">{{$section->section_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">Name :</label>
                     <input type="text" name="sender_name" placeholder="Your Name" id="youssry"
                            class="form-control{{ $errors->has('sender_name') ? ' is-invalid' : '' }}"
                            value="{{old('sender_name')}}" required>
                 </div>
                 <div class="form-group">
-                    <label>E-mail :</label>
+                    <label class="font-weight-bold">E-mail :</label>
                     <input type="text" name="sender_email" placeholder="Your E-mail" id="youssry"
                            class="form-control{{ $errors->has('sender_email') ? ' is-invalid' : '' }}"
                            value="{{old('sender_email')}}" required>
                 </div>
                 <div class="form-group">
-                    <label>Message :</label>
+                    <label class="font-weight-bold">Message :</label>
                     <textarea class="form-control textareaY{{ $errors->has('sender_message') ? ' is-invalid' : '' }}"
                               rows="5" placeholder="Your Message......"
                               name="sender_message">{{old('sender_message')}}</textarea>
