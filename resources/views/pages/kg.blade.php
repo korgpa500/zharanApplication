@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    <br>
     <img src="{{asset('images/kg.png')}}" class="img-fluid">
     <div class="container">
 

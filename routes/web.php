@@ -11,26 +11,27 @@
 |
 */
 /**
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-**/
+ * Route::get('/', function () {
+ * return view('welcome');
+ * })->name('welcome');
+ **/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 //for suggestion
-Route::post('/suggestions' ,'SuggestionController@store');// guest send suggestion
+Route::post('/suggestions', 'SuggestionController@store');// guest send suggestion
 
 //pages
-Route::get('/' ,'PagesController@welcome')->name('welcome');//welcome page
-Route::get('/about' ,'PagesController@aboutView');//about page
-Route::get('/kg' ,'PagesController@kgView');//about page
-Route::get('/primary_stage' ,'PagesController@primaryView');//about page
-Route::get('/middle_girls' ,'PagesController@mGirlsView');//about page
-Route::get('/middle_boys' ,'PagesController@mBoysView');//about page
-Route::get('/secondary_girls' ,'PagesController@sGirlsView');//about page
-Route::get('/secondary_boys' ,'PagesController@sBoysView');//about page
+Route::get('/', 'PagesController@welcome')->name('welcome');//welcome page
+Route::get('/about', 'PagesController@aboutView');//about page
+Route::get('/photos', 'PhotoController@index')->name('photos.index');//gallery page
+Route::get('/kg', 'PagesController@kgView');//kg page
+Route::get('/primary_stage', 'PagesController@primaryView');//primary page
+Route::get('/middle_girls', 'PagesController@mGirlsView');//middle girls page
+Route::get('/middle_boys', 'PagesController@mBoysView');//middle boys page
+Route::get('/secondary_girls', 'PagesController@sGirlsView');//secondary girls page
+Route::get('/secondary_boys', 'PagesController@sBoysView');//secondary boys page
 
 
 //routes for admin only
@@ -51,6 +52,10 @@ Route::group(['middleware' => ['checkAdmin']], function () {
 
     //users
     Route::get('/users', 'UserController@index')->name('users.index');
+
+    //Gallery
+    Route::get('/photos/create', 'PhotoController@create')->name('photos.create');
+    Route::post('/photos', 'PhotoController@store')->name('photos.store');
 });
 
 

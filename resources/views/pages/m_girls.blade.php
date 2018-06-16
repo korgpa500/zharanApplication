@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <div class="text-center"><img src="{{asset('images/mgirl.JPG')}}" class="img-fluid"></div>
 
     <div class="container">

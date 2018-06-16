@@ -11,9 +11,10 @@
     <title>{{ config('app.name', 'Z.L.S') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/myJs.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -33,7 +34,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-dark navbar-laravel bg-info fixed-top myNavBar">
+    <nav class="navbar navbar-expand-md navbar-dark navbar-laravel fixed-top myNavBar">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
@@ -46,6 +47,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li><a class="nav-link" href="/about" id="itemsLink">{{ __('About') }}</a></li>
+                <li><a class="nav-link" href="/photos" id="itemsLink">{{ __('Gallery') }}</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -64,6 +66,7 @@
                             <div class="dropdown-menu bg-info" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/types">Types</a>
                                 <a class="dropdown-item" href="/sections">Sections</a>
+                                <a class="dropdown-item" href="/photos/create">Photos</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/users">Users</a>
                             </div>

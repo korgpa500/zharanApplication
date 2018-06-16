@@ -30,7 +30,7 @@
 <body>
 
 <!--navbar-->
-<nav class="navbar navbar-expand-md navbar-dark bg-info fixed-top myNavBar">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top myNavBar">
     <a class="navbar-brand" href="{{ url('/') }}">
         {{ config('app.name', 'Laravel') }}
     </a>
@@ -43,6 +43,7 @@
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav mr-auto">
             <li><a class="nav-link" href="/about" id="itemsLink">{{ __('About') }}</a></li>
+            <li><a class="nav-link" href="/photos" id="itemsLink">{{ __('Gallery') }}</a></li>
         </ul>
         <!-- Right Side Of NavBar -->
         <ul class="navbar-nav ml-auto">
@@ -59,7 +60,7 @@
 </nav>
 <br><br>
 <!-- carousel -->
-<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+<div id="carouselExampleFade" class="carousel slide carousel-fade myCarousel" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img class="d-block w-100" src="{{asset('images/111.JPG')}}" alt="First slide">
