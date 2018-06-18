@@ -210,11 +210,11 @@ input[type='text']#youssry, select#youssry, input[type='file']#youssry {
     transform: rotate(2160deg);
 }
 
-#show {
+#showPhotos {
     margin-top: 200px;
 }
 
-.show {
+.showPhotos {
     display: block;
     transition: all 1s;
     transform: translate(0px, -200px);

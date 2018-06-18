@@ -12,7 +12,7 @@
 
         <br><br>
 
-        <div id="show">
+        <div id="showPhotos">
 
         </div>
 

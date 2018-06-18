@@ -29,12 +29,12 @@ function show_section_photos(id) {
     var ajaxConfig = {
         'url': '/photos/' + id,
         'success': function (data) {
-            $("#show").html(data);
+            $("#showPhotos").html(data);
         }
     }
     $.ajax(ajaxConfig)
         .done(function () {
-            $('#show').addClass('show');
+            $('#showPhotos').addClass('showPhotos');
         })
         .fail(function () {
             $('#wrong').css('display', 'block');
