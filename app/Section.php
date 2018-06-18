@@ -14,6 +14,11 @@ class Section extends Model
         return $this->hasMany('App\User');
     }
 
+    public function photos()
+    {
+        return $this->hasMany(Photo::class, 'id', 'section_id');
+    }
+
 
     protected $fillable = [
         'section_name',

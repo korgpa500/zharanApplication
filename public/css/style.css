@@ -209,3 +209,13 @@ input[type='text']#youssry, select#youssry, input[type='file']#youssry {
     transition: all 1s;
     transform: rotate(2160deg);
 }
+
+#show {
+    margin-top: 200px;
+}
+
+.show {
+    display: block;
+    transition: all 1s;
+    transform: translate(0px, -200px);
+}

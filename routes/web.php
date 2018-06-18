@@ -26,6 +26,8 @@ Route::post('/suggestions', 'SuggestionController@store');// guest send suggesti
 Route::get('/', 'PagesController@welcome')->name('welcome');//welcome page
 Route::get('/about', 'PagesController@aboutView');//about page
 Route::get('/photos', 'PhotoController@index')->name('photos.index');//gallery page
+Route::get('/photos/{section_id}', 'PhotoController@show')->name('photos.show');//gallery section
+
 Route::get('/kg', 'PagesController@kgView');//kg page
 Route::get('/primary_stage', 'PagesController@primaryView');//primary page
 Route::get('/middle_girls', 'PagesController@mGirlsView');//middle girls page

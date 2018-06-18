@@ -4,12 +4,14 @@
 
 
 $(document).ready(function () {
+    //move to contact form
     $("#btnClose").click(function () {
         $('html, body').animate({
             scrollTop: $("#contact").offset().top
         }, 800);
     });
 
+    //logo animation
     $(".navbar-brand").hover(function () {
         if ($(this).hasClass("logoAnim")) {
             $(this).removeClass("logoAnim");
@@ -19,4 +21,22 @@ $(document).ready(function () {
     });
 });
 
-baguetteBox.run('.tz-gallery');
+//baguetteBox.run('.tz-gallery');
+
+
+//show section photos ajax
+function show_section_photos(id) {
+    var ajaxConfig = {
+        'url': '/photos/' + id,
+        'success': function (data) {
+            $("#show").html(data);
+        }
+    }
+    $.ajax(ajaxConfig)
+        .done(function () {
+            $('#show').addClass('show');
+        })
+        .fail(function () {
+            $('#wrong').css('display', 'block');
+        });
+}

@@ -11,7 +11,16 @@ class PhotoController extends Controller
 {
     function index()
     {
-        return view('photos.index');
+        //$sections = Section::where('section_name' ,'!=' ,'Admin')->get();
+        $sections = Photo::all()->sortBy('section_id')->groupBy('section_id');
+        return view('photos.index')->with('sections', $sections);
+    }
+
+    function show($section_id)
+    {
+        $photos = Photo::where('section_id', $section_id)->get();
+        //dd($photos);
+        return view('photos.show')->with('photos', $photos);
     }
 
     function create()
@@ -26,7 +35,9 @@ class PhotoController extends Controller
         $request->validate([
             'title' => 'required|min:3',
             'description' => 'required|min:5',
-            'img_url' => 'required|image'
+            'img_url' => 'required|image|max:2048'
+        ], [
+            'img_url.max' => 'the file too large',
         ]);
 
         $path = $request->img_url->store('avatars/gallery', 'public');

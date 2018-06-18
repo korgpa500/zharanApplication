@@ -33,4 +33,6 @@
 
     </div>
 
+    <script>baguetteBox.run('.tz-gallery');</script>
+
 @endsection
