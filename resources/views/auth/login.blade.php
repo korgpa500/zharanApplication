@@ -31,6 +31,8 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
+                                <span id="eye" toggle="#password"
+                                      class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('password') }}</strong>

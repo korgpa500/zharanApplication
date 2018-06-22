@@ -6,12 +6,12 @@ use App\Photo;
 use App\Section;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
     function index()
     {
-        //$sections = Section::where('section_name' ,'!=' ,'Admin')->get();
         $sections = Photo::all()->sortBy('section_id')->groupBy('section_id');
         return view('photos.index')->with('sections', $sections);
     }
@@ -19,7 +19,6 @@ class PhotoController extends Controller
     function show($section_id)
     {
         $photos = Photo::where('section_id', $section_id)->get();
-        //dd($photos);
         return view('photos.show')->with('photos', $photos);
     }
 
@@ -27,6 +26,13 @@ class PhotoController extends Controller
     {
         $sections = Section::where('section_name', '!=', 'Admin')->get();
         return view('photos.create')->with('sections', $sections);
+    }
+
+    function delete($id)
+    {
+        $photo = Photo::find($id);
+        Storage::disk('myDriver')->delete($photo->img_url);
+        $photo->delete();
     }
 
     function store(Request $request)

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container text-center">
-
+        <!-- start create photo-->
         <h1>Add New Photo</h1>
         <hr>
 
@@ -39,9 +39,10 @@
                 <img src="{{asset('images/gallery.png')}}" class="img-fluid">
             </div>
         </div>
-
-
+        <!-- end create -->
     </div>
+
+
 
 
     @if($errors)

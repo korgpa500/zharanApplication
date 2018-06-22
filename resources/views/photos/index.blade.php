@@ -16,11 +16,34 @@
 
         </div>
 
-        <div id="wrong" style="display: none;">
-            wrong....from ajax
-        </div>
-
     </div>
+
+    <div id="wrong" style="display: none;">
+        wrong....from ajax
+    </div>
+
+
+    <!-- Modal Delete Image-->
+    <div class="modal fade" id="DeleteImage" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-danger">Warning......</h4>
+                </div>
+                <div class="modal-body">
+                    <label class="text-info active textWarning">
+                        Image Was Deleted
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info btnYoussry" data-dismiss="modal">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Delete Image-->
 
 
 @endsection

@@ -4,7 +4,7 @@
 
 
 $(document).ready(function () {
-    //move to contact form
+    //move to contact form in home page
     $("#btnClose").click(function () {
         $('html, body').animate({
             scrollTop: $("#contact").offset().top
@@ -19,6 +19,26 @@ $(document).ready(function () {
             $(this).addClass("logoAnim");
         }
     });
+
+    //show password field
+    $('#eye').hide();
+    $('#password').mouseover(function () {
+        if ($(this).val() !== "") {
+            $('#eye').show();
+        }
+    });
+    $('#password').mousedown(function () {
+        $('#eye').hide();
+    });
+
+    $('#eye').click(function () {
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        if ($('#password').attr("type") == "password") {
+            $('#password').attr("type", "text");
+        } else {
+            $('#password').attr("type", "password");
+        }
+    });
 });
 
 //baguetteBox.run('.tz-gallery');
@@ -27,7 +47,7 @@ $(document).ready(function () {
 //show section photos ajax
 function show_section_photos(id) {
     var ajaxConfig = {
-        'url': '/photos/' + id,
+        'url': '/photos/' + id + '/showPhotos',
         'success': function (data) {
             $("#showPhotos").html(data);
         }
@@ -38,5 +58,21 @@ function show_section_photos(id) {
         })
         .fail(function () {
             $('#wrong').css('display', 'block');
+        });
+}
+
+function deletePhoto(id) {
+    var ajaxDelete = {
+        'url': '/photos/' + id + '/deletePhoto',
+    }
+    $.ajax(ajaxDelete)
+        .done(
+            function () {
+                $('#DeleteImage').modal('show');
+                $('#' + id).css("display", "none");
+            }
+        )
+        .fail(function (error) {
+            console.log(error);
         });
 }

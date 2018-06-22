@@ -20,6 +20,6 @@ class SuggestionController extends Controller
             'section_id'=> ($request->section_name == 'general') ? $sectionAdmin->section_id : $section->section_id,
         ]);
 
-        return redirect()->back()->with('message', 'IT WORKS!');
+        return redirect()->back()->with('message', 'suggestion');
     }
 }

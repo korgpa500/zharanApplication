@@ -52,7 +52,8 @@
                 <li><a class="nav-link" id="itemsLink" href="{{ url('/home') }}">Home</a></li>
             @else
                 <li><a class="nav-link" id="itemsLink" href="{{ route('login') }}">Login</a></li>
-                <li><a class="nav-link" id="itemsLink" href="{{ route('register') }}">Register</a></li>
+                {{--<li><a class="nav-link" id="itemsLink" href="{{ route('register') }}">Register</a></li>--}}
+                <li><a class="nav-link" id="itemsLink" href="{{ url('/users/register') }}">Register</a></li>
                 @endauth
             @endif
         </ul>

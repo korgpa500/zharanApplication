@@ -19,21 +19,25 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//for suggestion
+//for suggestion message
 Route::post('/suggestions', 'SuggestionController@store');// guest send suggestion
 
 //pages
 Route::get('/', 'PagesController@welcome')->name('welcome');//welcome page
 Route::get('/about', 'PagesController@aboutView');//about page
 Route::get('/photos', 'PhotoController@index')->name('photos.index');//gallery page
-Route::get('/photos/{section_id}', 'PhotoController@show')->name('photos.show');//gallery section
-
+Route::get('/photos/{section_id}/showPhotos', 'PhotoController@show')->name('photos.show');//gallery section
 Route::get('/kg', 'PagesController@kgView');//kg page
 Route::get('/primary_stage', 'PagesController@primaryView');//primary page
 Route::get('/middle_girls', 'PagesController@mGirlsView');//middle girls page
 Route::get('/middle_boys', 'PagesController@mBoysView');//middle boys page
 Route::get('/secondary_girls', 'PagesController@sGirlsView');//secondary girls page
 Route::get('/secondary_boys', 'PagesController@sBoysView');//secondary boys page
+
+
+//register
+Route::get('/users/register', 'RegisterController@show')->name('users.register');// registerPageForm
+Route::post('users/post', 'RegisterController@register')->name('users.register');//registerPageSubmit
 
 
 //routes for admin only
@@ -58,6 +62,7 @@ Route::group(['middleware' => ['checkAdmin']], function () {
     //Gallery
     Route::get('/photos/create', 'PhotoController@create')->name('photos.create');
     Route::post('/photos', 'PhotoController@store')->name('photos.store');
+    Route::get('/photos/{photo_id}/deletePhoto', 'PhotoController@delete')->name('photos.delete');
 });
 
 

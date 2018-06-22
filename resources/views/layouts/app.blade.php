@@ -55,9 +55,17 @@
                 <!-- Authentication Links -->
                 @guest
                 <li><a class="nav-link" id="itemsLink" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                <li><a class="nav-link" id="itemsLink" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                {{--<li><a class="nav-link" id="itemsLink" href="{{ route('register') }}">Register</a></li>--}}
+                <li><a class="nav-link" id="itemsLink" href="{{ url('/users/register') }}">Register</a></li>
                 @else
                     @if(\App\User::find(Auth::user()->user_id)->type->type_name == "Admin")
+                        <li><a class="nav-link" href="/" id="itemsLink">
+                                <span class="notificationY">
+                                    {{(\App\Register::where('read' ,0)->count()) + (\App\Suggestion::count())}}
+                                </span>
+                                {{ __('Notification') }}
+                            </a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
