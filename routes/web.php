@@ -63,6 +63,10 @@ Route::group(['middleware' => ['checkAdmin']], function () {
     Route::get('/photos/create', 'PhotoController@create')->name('photos.create');
     Route::post('/photos', 'PhotoController@store')->name('photos.store');
     Route::get('/photos/{photo_id}/deletePhoto', 'PhotoController@delete')->name('photos.delete');
+
+    //Notification
+    Route::get('/notification', 'NotificationController@index')->name('notifications.index');
+    Route::get('/notification/{suggestion_id}/suggestion', 'NotificationController@showSuggestion')->name('notification.suggestion.show');
 });
 
 

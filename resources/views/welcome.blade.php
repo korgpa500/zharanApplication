@@ -202,6 +202,12 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label class="font-weight-bold">Title :</label>
+                    <input type="text" name="title" placeholder="title" id="youssry"
+                           class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
+                           value="{{old('title')}}" required>
+                </div>
+                <div class="form-group">
                     <label class="font-weight-bold">Name :</label>
                     <input type="text" name="sender_name" placeholder="Your Name" id="youssry"
                            class="form-control{{ $errors->has('sender_name') ? ' is-invalid' : '' }}"

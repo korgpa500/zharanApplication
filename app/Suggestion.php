@@ -8,6 +8,7 @@ class Suggestion extends Model
 {
 
 
+
     public function section()
     {
         return $this->belongsTo(Section::class ,'section_id');
@@ -15,7 +16,7 @@ class Suggestion extends Model
 
 
     protected $fillable = [
-        'sender_name','sender_email','sender_message','section_id'
+        'title', 'sender_name', 'sender_email', 'sender_message', 'section_id', 'read'
     ];
 
 }

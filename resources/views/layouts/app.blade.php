@@ -59,9 +59,9 @@
                 <li><a class="nav-link" id="itemsLink" href="{{ url('/users/register') }}">Register</a></li>
                 @else
                     @if(\App\User::find(Auth::user()->user_id)->type->type_name == "Admin")
-                        <li><a class="nav-link" href="/" id="itemsLink">
+                        <li><a class="nav-link" href="/notification" id="itemsLink">
                                 <span class="notificationY">
-                                    {{(\App\Register::where('read' ,0)->count()) + (\App\Suggestion::count())}}
+                                    {{(\App\Register::where('read' ,0)->count()) + (\App\Suggestion::where('read' ,0)->count())}}
                                 </span>
                                 {{ __('Notification') }}
                             </a>

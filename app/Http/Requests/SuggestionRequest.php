@@ -26,7 +26,8 @@ class SuggestionRequest extends FormRequest
         return [
             'sender_name' => 'required|min:2',
             'sender_email' => 'required|email',
-            'sender_message' => 'required|min:20'
+            'sender_message' => 'required|min:20',
+            'title' => 'required|min:5'
         ];
     }
 
