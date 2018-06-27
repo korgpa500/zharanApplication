@@ -40,6 +40,9 @@ $(document).ready(function () {
             $('#password').attr("type", "password");
         }
     });
+
+    //$('.imageLogo').css("display" ,"none");
+
 });
 
 //baguetteBox.run('.tz-gallery');
@@ -61,7 +64,7 @@ function show_section_photos(id) {
             $('#wrong').css('display', 'block');
         });
 }
-
+//del photo by ajax
 function deletePhoto(id) {
     var ajaxDelete = {
         'url': '/photos/' + id + '/deletePhoto',
@@ -76,6 +79,47 @@ function deletePhoto(id) {
         .fail(function (error) {
             console.log(error);
         });
+}
+//delete suggestion or message by ajax
+function deleteSuggestion(id) {
+    var ajaxDelete = {
+        'url': '/notification/' + id + '/suggestion_del',
+    }
+    $.ajax(ajaxDelete)
+        .done(
+            function () {
+                $('#DeleteSuggestion').modal('show');
+                $('#' + id).css("display", "none");
+            }
+        )
+        .fail(
+            function (error) {
+                console.log(error);
+            }
+        );
+}
+
+//add user registered by ajax
+function approveUser(id) {
+    $('.imageLogo').addClass("animated infinite rotateIn").css("display", "block");
+
+    var ajaxAddUser = {
+        'url': '/notification/' + id + '/addUserRegistered',
+    }
+
+    $.ajax(ajaxAddUser)
+        .done(
+            function () {
+                $('#AddedUser').modal('show');
+                $('#' + id).css("display", "none");
+                $('.imageLogo').removeClass("animated infinite rotateIn").css("display", "none");
+            }
+        )
+        .fail(
+            function (error) {
+                console.log(error);
+            }
+        );
 }
 
 //print div id

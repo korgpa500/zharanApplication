@@ -245,3 +245,11 @@ input[type='text']#youssry, select#youssry, input[type='file']#youssry {
 .borderLess td {
     border: none;
 }
+
+.imageLogo {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    background-position: center;
+}

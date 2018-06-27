@@ -1,7 +1,12 @@
 @extends('layouts.app')
 @section('content')
 
+
+
     <div class="container text-center">
+
+        <div class="imageLogo"><img class="img-fluid" src="{{asset('images/logot.png')}}"></div>
+
         <h1>Notifications</h1>
         <br>
         <h3>Message And Suggestions</h3>
@@ -17,8 +22,8 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($suggestions as $suggestion)
-                <tr>
+            @forelse($suggestions as $suggestion)
+                <tr id="{{$suggestion->id}}">
                     @if($suggestion->read == 0)
                         <td class="animated infinite swing text-danger">New</td>
                     @else
@@ -27,12 +32,18 @@
                     <td>{{date('d-m-Y', strtotime($suggestion->created_at))}}</td>
                     <td>{{$suggestion->title}}</td>
                     <td><a href="/notification/{{$suggestion->id}}/suggestion" class="btn btn-info">Show</a></td>
-                    <td><a href="#" class="btn btn-danger">Delete</a></td>
+                    <td>
+                        <button onclick="deleteSuggestion({{$suggestion->id}})" class="btn btn-danger">Delete</button>
+                    </td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="5">No Message Were Found</td>
+                </tr>
+            @endforelse
             </tbody>
         </table>
-        {{$suggestions->links()}}
+        <div class="justify-content-center">{{$suggestions->links()}}</div>
         <hr>
         <h3>Register</h3>
         <br>
@@ -42,11 +53,14 @@
                 <th></th>
                 <th>Date</th>
                 <th>Name</th>
+                <th>Show</th>
+                <th>Approve</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
             @foreach($registers as $register)
-                <tr>
+                <tr id="{{$register->id}}">
                     @if($register->read == 0)
                         <td class="animated infinite swing text-danger">New</td>
                     @else
@@ -54,12 +68,64 @@
                     @endif
                     <td>{{date('d-m-Y', strtotime($register->created_at))}}</td>
                     <td>{{$register->name}}</td>
+                    <td><a href="/notification/{{$register->id}}/show" class="btn btn-info">Show</a></td>
+                    <td>
+                        <button onclick="approveUser({{$register->id}})" class="btn btn-info">Approve</button>
+                    </td>
+                    <td>
+                        <button onclick="deleteUser({{$register->id}})" class="btn btn-danger">Delete</button>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
         {{$registers->links()}}
     </div>
+
+
+    <!-- Modal Delete Suggestion-->
+    <div class="modal fade" id="DeleteSuggestion" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-danger">Warning......</h4>
+                </div>
+                <div class="modal-body">
+                    <label class="text-info active textWarning">
+                        Message Or Suggestions Was Deleted
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info btnYoussry" data-dismiss="modal">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Delete Suggestion-->
+
+    <!-- Modal Add Registered User-->
+    <div class="modal fade" id="AddedUser" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-info">Success......</h4>
+                </div>
+                <div class="modal-body">
+                    <label class="text-info active textWarning">
+                        User Has Been Added
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info btnYoussry" data-dismiss="modal">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Add user-->
 
 
 @endsection

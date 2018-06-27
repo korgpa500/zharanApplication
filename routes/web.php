@@ -65,8 +65,13 @@ Route::group(['middleware' => ['checkAdmin']], function () {
     Route::get('/photos/{photo_id}/deletePhoto', 'PhotoController@delete')->name('photos.delete');
 
     //Notification
-    Route::get('/notification', 'NotificationController@index')->name('notifications.index');
-    Route::get('/notification/{suggestion_id}/suggestion', 'NotificationController@showSuggestion')->name('notification.suggestion.show');
+    //suggestions
+    Route::get('/notification', 'NotificationController@index')->name('notifications.index');//show all notification
+    Route::get('/notification/{suggestion_id}/suggestion', 'NotificationController@showSuggestion')->name('notification.suggestion.show');//show message notification
+    Route::get('/notification/{suggestion_id}/suggestion_del', 'NotificationController@deleteSuggestion');//del suggestion
+    //Users Registered
+    Route::get('/notification/{register_id}/show', 'NotificationController@showUser');//show user notification
+    Route::get('/notification/{register_id}/addUserRegistered', 'NotificationController@addUserRegistered');//add new registered users
 });
 
 

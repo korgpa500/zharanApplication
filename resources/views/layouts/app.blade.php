@@ -60,9 +60,11 @@
                 @else
                     @if(\App\User::find(Auth::user()->user_id)->type->type_name == "Admin")
                         <li><a class="nav-link" href="/notification" id="itemsLink">
+                                @if((\App\Register::where('read' ,0)->count()) + (\App\Suggestion::where('read' ,0)->count()) > 0)
                                 <span class="notificationY">
                                     {{(\App\Register::where('read' ,0)->count()) + (\App\Suggestion::where('read' ,0)->count())}}
                                 </span>
+                                @endif
                                 {{ __('Notification') }}
                             </a>
                         </li>
