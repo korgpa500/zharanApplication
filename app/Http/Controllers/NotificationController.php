@@ -67,4 +67,23 @@ class NotificationController extends Controller
 
         $userRegister->delete();
     }
+
+    function ignoreUserRegistered($register_id)
+    {
+        $userRegister = Register::find($register_id);
+
+        $dataMail = [
+            'email' => $userRegister->email,
+            'subject' => 'Registration Ignored',
+            'bodyMessage' => 'Hello Mr/Mrs : ' . $userRegister->name . ' Your Account has been DELETED\nPlease contact to admin',
+        ];
+
+        Mail::send('users.register_mail', $dataMail, function ($message) use ($dataMail) {
+            $message->from('yousryelwrdany@gmail.com');
+            $message->to($dataMail['email']);
+            $message->subject($dataMail['subject']);
+        });
+
+        $userRegister->delete();
+    }
 }

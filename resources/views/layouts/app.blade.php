@@ -48,6 +48,20 @@
             <ul class="navbar-nav mr-auto">
                 <li><a class="nav-link" href="/about" id="itemsLink">{{ __('About') }}</a></li>
                 <li><a class="nav-link" href="/photos" id="itemsLink">{{ __('Gallery') }}</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ __('Sections') }}
+                    </a>
+                    <div class="dropdown-menu bg-info" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/kg">K.G</a>
+                        <a class="dropdown-item" href="/primary_stage">Primary Stage</a>
+                        <a class="dropdown-item" href="/middle_girls">Middle Girls</a>
+                        <a class="dropdown-item" href="/middle_boys">Middle Boys</a>
+                        <a class="dropdown-item" href="/secondary_girls">Secondary Girls</a>
+                        <a class="dropdown-item" href="/secondary_boys">Secondary Boys</a>
+                    </div>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->

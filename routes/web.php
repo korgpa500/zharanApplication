@@ -58,6 +58,9 @@ Route::group(['middleware' => ['checkAdmin']], function () {
 
     //users
     Route::get('/users', 'UserController@index')->name('users.index');
+    Route::get('/users/{user_id}/delete', 'UserController@delete')->name('users.delete');//delete user from user table
+    Route::get('/users/{user_id}/edit', 'UserController@edit')->name('users.edit');
+    Route::post('users', 'UserController@update');
 
     //Gallery
     Route::get('/photos/create', 'PhotoController@create')->name('photos.create');
@@ -71,7 +74,8 @@ Route::group(['middleware' => ['checkAdmin']], function () {
     Route::get('/notification/{suggestion_id}/suggestion_del', 'NotificationController@deleteSuggestion');//del suggestion
     //Users Registered
     Route::get('/notification/{register_id}/show', 'NotificationController@showUser');//show user notification
-    Route::get('/notification/{register_id}/addUserRegistered', 'NotificationController@addUserRegistered');//add new registered users
+    Route::get('/notification/{register_id}/addUserRegistered', 'NotificationController@addUserRegistered');//add new registered users(approve)
+    Route::get('/notification/{register_id}/ignoreUserRegistered', 'NotificationController@ignoreUserRegistered');//ignore user registered
 });
 
 

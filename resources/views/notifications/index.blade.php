@@ -60,7 +60,7 @@
             </thead>
             <tbody>
             @foreach($registers as $register)
-                <tr id="{{$register->id}}">
+                <tr id="{{$register->id}}Delete">
                     @if($register->read == 0)
                         <td class="animated infinite swing text-danger">New</td>
                     @else
@@ -73,7 +73,7 @@
                         <button onclick="approveUser({{$register->id}})" class="btn btn-info">Approve</button>
                     </td>
                     <td>
-                        <button onclick="deleteUser({{$register->id}})" class="btn btn-danger">Delete</button>
+                        <button onclick="IgnoreUser({{$register->id}})" class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
             @endforeach
@@ -126,6 +126,29 @@
         </div>
     </div>
     <!-- End Add user-->
+
+
+    <!-- Modal Ignore Registered User-->
+    <div class="modal fade" id="IgnoredUser" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-danger">Success......</h4>
+                </div>
+                <div class="modal-body">
+                    <label class="text-danger active textWarning">
+                        User Has Been Ignored
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btnYoussry" data-dismiss="modal">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Ignore user-->
 
 
 @endsection

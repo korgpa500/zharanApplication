@@ -44,6 +44,20 @@
         <ul class="navbar-nav mr-auto">
             <li><a class="nav-link" href="/about" id="itemsLink">{{ __('About') }}</a></li>
             <li><a class="nav-link" href="/photos" id="itemsLink">{{ __('Gallery') }}</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ __('Sections') }}
+                </a>
+                <div class="dropdown-menu bg-info" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/kg">K.G</a>
+                    <a class="dropdown-item" href="/primary_stage">Primary Stage</a>
+                    <a class="dropdown-item" href="/middle_girls">Middle Girls</a>
+                    <a class="dropdown-item" href="/middle_boys">Middle Boys</a>
+                    <a class="dropdown-item" href="/secondary_girls">Secondary Girls</a>
+                    <a class="dropdown-item" href="/secondary_boys">Secondary Boys</a>
+                </div>
+            </li>
         </ul>
         <!-- Right Side Of NavBar -->
         <ul class="navbar-nav ml-auto">
@@ -229,12 +243,6 @@
                     <input type="submit" value="Send" class="btn btn-info btnYoussry">
                 </div>
             </form>
-            <h5>You can contact with us in</h5>
-            <h5><b>FAX : 03 - 4249620</b></h5>
-            <h5><b>FAX : 03 - 4249620</b></h5>
-            <h5><b>Email : zahranschools1998@yahoo.com</b></h5>
-            <a href="https://www.facebook.com/ZAHRAN.SCHOOLS"><i class="fa fa-facebook-square"
-                                                                 style="font-size:48px;"></i></a>
 
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6">
@@ -325,5 +333,83 @@
     @endif
 
 </div>
+
+
+<!-- Footer -->
+<footer class="page-footer font-small bg-info text-light lighten-3 pt-4 mt-4">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mb-4">Sections</h5>
+
+                <ul class="list-unstyled text-light">
+                    <li><p><a class="text-white" href="/kg">K.G</a></p></li>
+                    <li><p><a class="text-white" href="/primary_stage">Primary Stage</a></p></li>
+                    <li><p><a class="text-white" href="/middle_girls">Middle Girls</a></p></li>
+                    <li><p><a class="text-white" href="/middle_boys">Middle Boys</a></p></li>
+                    <li><p><a class="text-white" href="/secondary_girls">Secondary Girls</a></p></li>
+                    <li><p><a class="text-white" href="/secondary_boys">Secondary Boys</a></p></li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Contact details -->
+                <h5 class="font-weight-bold text-uppercase mb-4">Address</h5>
+
+                <ul class="list-unstyled">
+                    <li><p><i class="fa fa-home mr-3"></i> Alexandria ,Smouha</p></li>
+                    <li><p><i class="fa fa-envelope mr-3"></i> Email : zahranschools1998@yahoo.com</p></li>
+                    <li><p><i class="fa fa-phone mr-3"></i> 03 - 4249620</p></li>
+                    <li><p><i class="fa fa-print mr-3"></i> 03 - 4249620</p></li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                <!-- Social buttons -->
+                <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+                <a href="https://www.facebook.com/ZAHRAN.SCHOOLS"><i class="fa fa-facebook-square"
+                                                                     style="font-size:48px;"></i></a>
+
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright : yousryelwrdany@gmail.com</div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+
 </body>
 </html>

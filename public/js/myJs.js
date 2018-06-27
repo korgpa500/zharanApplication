@@ -41,11 +41,7 @@ $(document).ready(function () {
         }
     });
 
-    //$('.imageLogo').css("display" ,"none");
-
 });
-
-//baguetteBox.run('.tz-gallery');
 
 
 //show section photos ajax
@@ -113,6 +109,49 @@ function approveUser(id) {
                 $('#AddedUser').modal('show');
                 $('#' + id).css("display", "none");
                 $('.imageLogo').removeClass("animated infinite rotateIn").css("display", "none");
+            }
+        )
+        .fail(
+            function (error) {
+                console.log(error);
+            }
+        );
+}
+
+//ignore registered user
+function IgnoreUser(id) {
+    $('.imageLogo').addClass("animated infinite rotateIn").css("display", "block");
+
+    var ajaxIgnore = {
+        'url': '/notification/' + id + '/ignoreUserRegistered',
+    }
+
+    $.ajax(ajaxIgnore)
+        .done(
+            function () {
+                $('#IgnoredUser').modal('show');
+                $('#' + id + 'Delete').css("display", "none");
+                $('.imageLogo').removeClass("animated infinite rotateIn").css("display", "none");
+            }
+        )
+        .fail(
+            function (error) {
+                console.log(error);
+            }
+        );
+}
+
+//delete user from User Table
+function DeleteUserAjax(id) {
+    var deleteUser = {
+        'url': '/users/' + id + '/delete',
+    }
+
+    $.ajax(deleteUser)
+        .done(
+            function () {
+                $('#DeleteUser').modal('show');
+                $('#' + id).css("display", "none");
             }
         )
         .fail(
