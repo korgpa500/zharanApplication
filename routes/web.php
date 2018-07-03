@@ -78,5 +78,12 @@ Route::group(['middleware' => ['checkAdmin']], function () {
     Route::get('/notification/{register_id}/ignoreUserRegistered', 'NotificationController@ignoreUserRegistered');//ignore user registered
 });
 
+//route for users
+//Route::post('/posts', 'PostController@store')->middleware('auth');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::post('/posts', 'PostController@store'); //store new post
+    Route::get('/posts/{post_id}/add_like', 'LikeController@store'); //store new like to post
+});
 
 

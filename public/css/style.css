@@ -246,10 +246,95 @@ input[type='text']#youssry, select#youssry, input[type='file']#youssry {
     border: none;
 }
 
+/** loading wait and scroll**/
 .imageLogo {
     display: none;
     position: fixed;
     top: 30%;
     left: 30%;
     background-position: center;
+}
+
+/**card style**/
+.cardY {
+    border-radius: 0px 50px;
+    color: white;
+    background-color: rgba(0, 131, 180, 0.7);;
+}
+
+/** modal **/
+
+.modal {
+    top: 10%;
+}
+
+/*for icons*/
+.youssryicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.youssryicon-calendar:before {
+    content: "\1F4C5";
+    padding-right: 5px;
+}
+
+.youssryicon-time:before {
+    content: "\23F0";
+    padding-right: 5px;
+}
+
+.youssryicon-home:before {
+    content: "\26EA";
+    padding-right: 5px;
+}
+
+.youssryicon-gallery:before {
+    content: "\1F4F7";
+    padding-right: 5px;
+}
+
+.youssryicon-setting:before {
+    content: "\2699";
+    font-size: 18px;
+    padding-right: 5px;
+    font-weight: bold;
+    text-shadow: #000000 0px 1px 0px;
+}
+
+.youssryicon-logout:before {
+    content: "\21B5";
+    font-size: 18px;
+    padding-right: 5px;
+    font-weight: bold;
+    text-shadow: #000000 0px 1px 0px;
+}
+
+.youssryicon-envelope:before {
+    content: "\2709";
+    font-weight: bold;
+    text-shadow: #000000 1px 0px 0px;
+    padding-right: 5px;
+    font-size: 16px;
+}
+
+.youssryicon-like:before {
+    content: "\1F44C";
+    font-weight: bold;
+    text-shadow: #000000 1px 0px 0px;
+    padding-right: 5px;
+    font-size: 24px;
+}
+
+.youssryicon-comment:before {
+    content: "\1F4E3";
+    font-weight: bold;
+    text-shadow: #000000 1px 0px 0px;
+    padding-right: 5px;
+    font-size: 24px;
 }

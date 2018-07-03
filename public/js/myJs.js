@@ -161,6 +161,36 @@ function DeleteUserAjax(id) {
         );
 }
 
+//show model add post
+function addNewPost() {
+    $('#AddPost').modal('show');
+}
+
+//add like to post
+function AddLike(post_id) {
+    var like = {
+        'url': '/posts/' + post_id + '/add_like',
+        'success': function (data) {
+            $("#btnLike" + post_id).html(data);
+        },
+    }
+    $('#btnLike' + post_id).addClass("animated swing");
+    $.ajax(like)
+        .done(
+            function () {
+                $('#btnLike' + post_id).attr("disabled", true);
+                if ($('#btnLike' + post_id).hasClass("animated swing")) {
+                    $('#btnLike' + post_id).removeClass("animated swing");
+                }
+            }
+        )
+        .fail(
+            function (error) {
+                console.log(error);
+            }
+        );
+}
+
 //print div id
 function printDiv(divName) {
     var printContents = document.getElementById(divName).innerHTML;

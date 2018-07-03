@@ -391,7 +391,7 @@
                 <!-- Social buttons -->
                 <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
                 <a href="https://www.facebook.com/ZAHRAN.SCHOOLS"><i class="fa fa-facebook-square"
-                                                                     style="font-size:48px;"></i></a>
+                                                                     style="font-size:48px;text-shadow: 1px 1px 1px #000022;color: #0000ff;"></i></a>
 
 
             </div>

@@ -75,7 +75,7 @@
                     @if(\App\User::find(Auth::user()->user_id)->type->type_name == "Admin")
                         <li><a class="nav-link" href="/notification" id="itemsLink">
                                 @if((\App\Register::where('read' ,0)->count()) + (\App\Suggestion::where('read' ,0)->count()) > 0)
-                                <span class="notificationY">
+                                    <span class="notificationY">
                                     {{(\App\Register::where('read' ,0)->count()) + (\App\Suggestion::where('read' ,0)->count())}}
                                 </span>
                                 @endif
@@ -96,6 +96,7 @@
                             </div>
                         </li>
                     @endif
+                    <li><a class="nav-link" id="itemsLink" href="{{ url('/home') }}">Home</a></li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
