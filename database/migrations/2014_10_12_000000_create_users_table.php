@@ -24,6 +24,17 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+            'name' => 'Youssry Elwrdany',
+            'mobile' => '01005697914',
+            'email' => 'yousryelwrdany@gmail.com',
+            'password' => bcrypt('963258741@Aas'),
+            'type_id' => '1',
+            'section_id' => '7',
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
+        ]);
     }
 
     /**

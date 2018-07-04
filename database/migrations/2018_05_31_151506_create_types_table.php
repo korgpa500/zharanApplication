@@ -18,6 +18,26 @@ class CreateTypesTable extends Migration
             $table->string('type_name');
             $table->timestamps();
         });
+
+        DB::table('types')->insert(
+            [
+                'type_name' => 'Admin',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ], [
+            'type_name' => 'Teacher',
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ], [
+            'type_name' => 'Student',
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ], [
+                'type_name' => 'Guest',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ]
+        );
     }
 
     /**
