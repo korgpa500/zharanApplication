@@ -42,40 +42,54 @@ Route::post('users/post', 'RegisterController@register')->name('users.register')
 
 //routes for admin only
 Route::group(['middleware' => ['checkAdmin']], function () {
-    //types
+
+    /////////////////////////////////////////////////////////////////////
+    /**************types******************/
+
     Route::get('/types', 'TypeController@index')->name('types.index');//show all types
     Route::post('/types', 'TypeController@store')->name('types.store');//save new type
     Route::get('/types/{type_id}', 'TypeController@show')->name('types.show');//show one type in same page
     Route::post('/types/{type_id}/edit', 'TypeController@edit')->name('types.edit');//edit one type
     Route::get('/types/{type_id}/delete', 'TypeController@destroy')->name('types.destroy');//delete one type
 
-//sections
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    /*******************sections********************/
+
     Route::get('/sections', 'SectionController@index')->name('sections.index');//show all sections
     Route::post('/sections', 'SectionController@store')->name('sections.store');//save new section
     Route::get('/sections/{section_id}', 'SectionController@show')->name('sections.show');//show one section in same page
     Route::post('/sections/{section_id}/edit', 'SectionController@edit')->name('sections.edit');//edit one section
     Route::get('/sections/{section_id}/delete', 'SectionController@destroy')->name('sections.destroy');//delete one section
 
-    //users
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    /**********************users*********************/
+
     Route::get('/users', 'UserController@index')->name('users.index');
     Route::get('/users/{user_id}/delete', 'UserController@delete')->name('users.delete');//delete user from user table
     Route::get('/users/{user_id}/edit', 'UserController@edit')->name('users.edit');
     Route::post('users', 'UserController@update');
 
-    //Gallery
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    /**********************Gallery*********************/
     Route::get('/photos/create', 'PhotoController@create')->name('photos.create');
     Route::post('/photos', 'PhotoController@store')->name('photos.store');
     Route::get('/photos/{photo_id}/deletePhoto', 'PhotoController@delete')->name('photos.delete');
 
-    //Notification
-    //suggestions
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    /*******************Notification**********************/
+    /*********suggestions**************/
     Route::get('/notification', 'NotificationController@index')->name('notifications.index');//show all notification
     Route::get('/notification/{suggestion_id}/suggestion', 'NotificationController@showSuggestion')->name('notification.suggestion.show');//show message notification
     Route::get('/notification/{suggestion_id}/suggestion_del', 'NotificationController@deleteSuggestion');//del suggestion
-    //Users Registered
+    /**********Users Registered***********/
     Route::get('/notification/{register_id}/show', 'NotificationController@showUser');//show user notification
     Route::get('/notification/{register_id}/addUserRegistered', 'NotificationController@addUserRegistered');//add new registered users(approve)
     Route::get('/notification/{register_id}/ignoreUserRegistered', 'NotificationController@ignoreUserRegistered');//ignore user registered
+
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    /**************************Posts************************************/
+    Route::get('/posts/{post_id}/destroy', 'PostController@destroy'); //delete post and likes
 });
 
 //route for users

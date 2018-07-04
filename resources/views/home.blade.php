@@ -36,21 +36,41 @@
         <div class="container">
             @foreach($posts as $post)
                 <div class="card bg-transparent" style="margin-bottom: 5px;">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col col-md-8">
+                                <h3>{{$post->post_title}}</h3>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <b>By :</b> {{$post->user->name}}
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="youssryicon youssryicon-calendar"></span>
+                                        {{date('d-m-Y', strtotime($post->created_at))}}
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="youssryicon youssryicon-time"></span>
+                                        {{date('h:i:s', strtotime($post->created_at))}}
+                                    </div>
+                                </div>
+                            </div>
+                            @if(Auth::user())
+                                @if(Auth::user()->type->type_name == "Admin")
+                                    <div class="col col-md-4 text-right">
+                                        <a href="/posts/{{$post->post_id}}/destroy" class="btn btn-danger">Delete</a>
+                                    </div>
+                                @endif
+                            @endif
+                        </div>
+
+                    </div>
                     <div class="card-body">
-                        <div class="card-title">
-                            <h2>{{$post->post_title}}</h2>
-                            <h6><b>By :</b> {{$post->user->name}}</h6>
-                            <h6>
-                                <span class="youssryicon youssryicon-calendar"></span>
-                                {{date('d-m-Y', strtotime($post->created_at))}}
-                                <span class="youssryicon youssryicon-time"></span>
-                                {{date('h:i:s', strtotime($post->created_at))}}
-                            </h6>
-                        </div>
-                        <div class="card-image-top">
-                            <img src="{{Storage::url($post->post_image)}}" alt='Park' class="img-fluid"
-                                 style="border-radius: 8px;">
-                        </div>
+                        @if($post->post_image != "")
+                            <div class="card-image-top">
+                                <img src="{{Storage::url($post->post_image)}}" alt='Park' class="img-fluid"
+                                     style="border-radius: 8px;">
+                            </div>
+                        @endif
                         <br>
                         <div class="card-text">
                             <h5>{{$post->post_body}}</h5>

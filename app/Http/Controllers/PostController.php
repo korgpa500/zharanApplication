@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -22,13 +23,25 @@ class PostController extends Controller
             $path = $request->post_image->store('avatars/posts', 'public');
         }
 
-        Post::create([
-            'post_title' => $request->post_title,
-            'post_body' => $request->post_body,
-            'post_image' => $path,
-            'user_id' => Auth::user()->user_id,
-            'section_id' => $request->section_id,
-        ]);
+        $post = new Post();
+        $post->post_title = $request->post_title;
+        $post->post_body = $request->post_body;
+        $post->post_image = $path;
+        $post->user_id = Auth::user()->user_id;
+        $post->section_id = $request->section_id;
+
+        $post->save();
+
+
+        return redirect()->back();
+    }
+
+    public function destroy($post_id)
+    {
+        $post = Post::find($post_id);
+        Storage::disk('myDriver')->delete($post->post_image);
+        $post->likes()->forceDelete();
+        $post->delete();
 
         return redirect()->back();
     }
